@@ -2,7 +2,7 @@
 
 Build tomato API with modular architecture
 
-- Set configuration files
+##  Set configuration files
 
 AttributeError: ‘module’ object has no attribute ‘find_dotenv’ while running Flask app
 -  followed advice here: https://qxf2.com/blog/attributeerror-module-object-has-no-attribute-find_dotenv-while-running-flask-app/ DID NOT WORK
