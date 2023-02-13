@@ -1,8 +1,12 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from flask_marshmallow import Marshmallow
 
+# create database object
 db = SQLAlchemy()
-# 
+# create marshmallow object
+ma = Marshmallow()
+
 def create_app():
     # create the flask app abject 
     app = Flask(__name__)
@@ -13,7 +17,9 @@ def create_app():
     # associates create_app with db object created outside
     # to create out database object and use ORM
     db.init_app(app)
-
+    # create marshmallow object to use ORM
+    ma.init_app(app)
+    
     # import the controllers and activates the blueprints
     from controllers import registerable_controllers
 
