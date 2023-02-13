@@ -1,5 +1,8 @@
+SET UP FLASK APP
+- initiate git repo and gitignore                     DONE
 - create virtual env                                  DONE
 - install pip and install requirements                DONE
-- initiate git repo and gitignore                     DONE
 - set configurarion files: main.py, .flaskenv .nev    DONE
-                           config.py
+                           config.py                  DONE
+- set main.py
+- define FLASK_APP environment

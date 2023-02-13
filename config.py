@@ -29,8 +29,8 @@ class ProductionConfig(Config):
     pass
 
 
-#class TestingConfig(Config):
-#    TESTING = True
+class TestingConfig(Config):
+    TESTING = True
 
 
 # get the configuration we are using from .flaskenv

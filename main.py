@@ -1,8 +1,15 @@
 from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
 
-app = Flask(__name__)
+# 
+def create_app():
+    #create the flask app abject 
+    app = Flask(__name__)
 
-@app.route('/')
-def hello_world():
-    return 'Hello, World!'
+    #configuring our app
+    app.config.from_object("config.app_config")
 
+    # creating our db object
+    bd = SQLAlchemy(app)
+
+    return app
