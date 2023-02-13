@@ -6,7 +6,7 @@ from models.actors import Actor
 actors = Blueprint('actors', __name__, url_prefix="/actors")
 
 
-@actors.route("/actors", methods = ["GET"])
+@actors.route("/", methods = ["GET"])
 def get_cards():
     # get all the actors from the bd table
     actors_list = Actor.query.all()
@@ -17,7 +17,7 @@ def get_cards():
     return "list of actors retrieved"
 
 
-@actors.route("/actors", methods=["POST"])
+@actors.route("/", methods=["POST"])
 # decorator to make sure the jwt is included in the request
 #@jwt_required()
 def actor_create():
@@ -36,7 +36,7 @@ def actor_create():
     return "Actor created"
 
 
-@actors.route("/actors/<int:id>", methods=["DELETE"])
+@actors.route("/<int:id>/", methods=["DELETE"])
 #@jwt_required()
 # includes the id parameter
 def actor_delete(id):

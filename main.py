@@ -11,11 +11,14 @@ def create_app():
     app.config.from_object("config.app_config")
 
     # associates create_app with db object created outside
-    # to create out database object
+    # to create out database object and use ORM
     db.init_app(app)
 
     # import the controllers and activates the blueprints
     from controllers import registerable_controllers
+
+    for controller in registerable_controllers:
+        app.register_blueprint(controller)
 
     @app.get("/")
     def hello():
