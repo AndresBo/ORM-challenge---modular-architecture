@@ -6,3 +6,6 @@ SET UP FLASK APP
                            config.py                  DONE
 - set main.py                                         DONE
 - define FLASK_APP environment                        DONE
+
+- set Models for actors, movies and users             DONE
+
