@@ -4,5 +4,5 @@ SET UP FLASK APP
 - install pip and install requirements                DONE
 - set configurarion files: main.py, .flaskenv .nev    DONE
                            config.py                  DONE
-- set main.py
-- define FLASK_APP environment
+- set main.py                                         DONE
+- define FLASK_APP environment                        DONE

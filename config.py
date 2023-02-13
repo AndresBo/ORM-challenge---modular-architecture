@@ -1,6 +1,6 @@
 import os
 
-
+# create a Class object Config and inherit from it to create different configurations
 class Config(object):
     # Flask-SQLAlchemy configuration that if True tracks modifications of objects and emit signal
     SQLALCHEMY_TRACK_MODIFICATIONS = False
