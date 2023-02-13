@@ -14,6 +14,9 @@ def create_app():
     # to create out database object
     db.init_app(app)
 
+    # import the controllers and activates the blueprints
+    from controllers import registerable_controllers
+
     @app.get("/")
     def hello():
         return { "message": "HI Bob!"}

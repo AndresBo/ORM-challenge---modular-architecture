@@ -9,3 +9,4 @@ SET UP FLASK APP
 
 - set Models for actors, movies and users             DONE
 
+NEXT set models for movies and users   -- lecture at 49min
