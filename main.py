@@ -1,11 +1,15 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy  # interpretes python code into SQL
 from flask_marshmallow import Marshmallow # handles request and response in predifined way (SCHEMAS)
-
+from flask_bcrypt import Bcrypt
+from flask_jwt_extended import JWTManager
 # create database object
 db = SQLAlchemy()
 # create marshmallow object
 ma = Marshmallow()
+
+bcrypt = Bcrypt()
+jwt = JWTManager()
 
 def create_app():
     # create the flask app abject 
@@ -19,6 +23,10 @@ def create_app():
     db.init_app(app)
     # create marshmallow object to use ORM
     ma.init_app(app)
+
+    # creating the jwt and bcrypt objects for authenticating
+    bcrypt.init_app(app)
+    jwt.init_app(app)
     
     # import the controllers and activates the blueprints
     from controllers import registerable_controllers
