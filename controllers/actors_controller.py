@@ -50,7 +50,7 @@ def actor_delete(id):
     # find the actor
     actor = Actor.query.filter_by(id=id).first()
     # return an error if the card does not exists
-    if not Actor:
+    if not actor:
         return abort(400, description="Actor does not exists")
     # Delete the actor from the db and commit
     db.session.delete(actor)

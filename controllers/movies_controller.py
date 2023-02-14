@@ -45,7 +45,7 @@ def movie_delete(id):
     # find the movie
     movie = Movie.query.filter_by(id=id).first()
 
-    if not Movie:
+    if not movie:
         return abort(400, description= "Movie does not exists")
 
     db.session.delete(movie)
