@@ -1,6 +1,6 @@
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-from flask_marshmallow import Marshmallow
+from flask_sqlalchemy import SQLAlchemy  # interpretes python code into SQL
+from flask_marshmallow import Marshmallow # handles request and response in predifined way (SCHEMAS)
 
 # create database object
 db = SQLAlchemy()
@@ -25,9 +25,5 @@ def create_app():
 
     for controller in registerable_controllers:
         app.register_blueprint(controller)
-
-    @app.get("/")
-    def hello():
-        return { "message": "HI Bob!"}
 
     return app

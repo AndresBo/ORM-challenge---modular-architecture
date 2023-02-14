@@ -3,7 +3,7 @@ from main import db
 from models.actors import Actor
 from schemas.actor_schema import actor_schema, actors_schema
 
-# create the controller
+# create the Blueprint controller
 actors = Blueprint('actors', __name__, url_prefix="/actors")
 
 

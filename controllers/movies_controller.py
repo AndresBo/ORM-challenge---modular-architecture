@@ -3,7 +3,7 @@ from main import db
 from models.movies import Movie
 from schemas.movie_schema import movie_schema, movies_schema
 
-
+# create Blueprint controller
 movies = Blueprint('movies', __name__, url_prefix="/movies")
 
 
