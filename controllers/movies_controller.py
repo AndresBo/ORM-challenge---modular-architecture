@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request, abort
 from main import db
-from models.movies import Movie
+from models.movie import Movie
 from schemas.movie_schema import movie_schema, movies_schema
 
 # create Blueprint controller

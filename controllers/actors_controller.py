@@ -1,12 +1,14 @@
 from flask import Blueprint, jsonify, request, abort
 from main import db
-from models.actors import Actor
+from models.actor import Actor
 from schemas.actor_schema import actor_schema, actors_schema
 
 # create the Blueprint controller
+# app knows theres a Blueprint called 'actors' and points 
+#                  name,  ,points to file name with __name__,  ,  parent url
 actors = Blueprint('actors', __name__, url_prefix="/actors")
 
-
+#           child URL
 @actors.route("/", methods = ["GET"])
 def get_cards():
     # get all the actors from the bd table
