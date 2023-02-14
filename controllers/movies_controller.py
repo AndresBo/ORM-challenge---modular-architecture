@@ -9,7 +9,7 @@ movies = Blueprint('movies', __name__, url_prefix="/movies")
 @movies.route("/", methods = ["GET"])
 def get_actors():
     movies_list = Movie.query.all()
-    # esult = movies_schema.dump(movies_list)
+    # result = movies_schema.dump(movies_list)
     # return jsonify(result)
     return "list of movies retrieved"
 
