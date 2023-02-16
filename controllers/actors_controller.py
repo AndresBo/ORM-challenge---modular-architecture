@@ -3,7 +3,6 @@ from main import db
 from models.actor import Actor
 from models.user import User
 from schemas.actor_schema import actor_schema, actors_schema
-from datetime import date
 from flask_jwt_extended import jwt_required, get_jwt_identity
 
 # create the Blueprint controller

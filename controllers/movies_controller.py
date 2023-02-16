@@ -1,7 +1,9 @@
 from flask import Blueprint, jsonify, request, abort
 from main import db
 from models.movie import Movie
+from models.user import User
 from schemas.movie_schema import movie_schema, movies_schema
+from flask_jwt_extended import jwt_required, get_jwt_identity
 
 # create Blueprint controller
 movies = Blueprint('movies', __name__, url_prefix="/movies")
@@ -16,7 +18,7 @@ def get_actors():
 
 
 @movies.route("/", methods=["POST"])
-#@jwt_required()
+@jwt_required()
 def movie_create():
     movie_fields = movie_schema.load(request.json)
 
@@ -34,13 +36,13 @@ def movie_create():
 
 
 @movies.route("/<int:id>/", methods=["DELETE"])
-#@jwt_required()
+@jwt_required()
 def movie_delete(id):
-    # user_id = get_jwt_identity()
-    # user = User.query.get(user_id)
+    user_id = get_jwt_identity()
+    user = User.query.get(user_id)
 
-    # if not user:
-    #     return abort(401, description="Invalid user")
+    if not user:
+        return abort(401, description="Invalid user")
 
     # find the movie
     movie = Movie.query.filter_by(id=id).first()
