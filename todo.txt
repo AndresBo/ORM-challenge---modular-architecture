@@ -9,7 +9,8 @@ SET UP FLASK APP
 
 - set Models for actors, movies and users             DONE
 
-- set models for movies                               DONE           -- lecture at 49min
+- set models for movies                               DONE           
 - "          "   users                             WAITING 
 
 - set schemas                                         DONE
+- set authentication: signup, signin

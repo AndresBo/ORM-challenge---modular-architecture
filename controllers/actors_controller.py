@@ -1,7 +1,10 @@
 from flask import Blueprint, jsonify, request, abort
 from main import db
 from models.actor import Actor
+from models.user import User
 from schemas.actor_schema import actor_schema, actors_schema
+from datetime import date
+from flask_jwt_extended import jwt_required, get_jwt_identity
 
 # create the Blueprint controller
 # app knows theres a Blueprint called 'actors' and points 
@@ -21,7 +24,7 @@ def get_cards():
 
 @actors.route("/", methods=["POST"])
 # decorator to make sure the jwt is included in the request
-#@jwt_required()
+@jwt_required()
 def actor_create():
     actor_fields = actor_schema.load(request.json)
 
@@ -38,16 +41,16 @@ def actor_create():
 
 
 @actors.route("/<int:id>/", methods=["DELETE"])
-#@jwt_required()
+@jwt_required()
 # includes the id parameter
 def actor_delete(id):
-    # # get the user id invoking get_jwt_identity
-    # user_id = get_jwt_identity()
-    # # find it in the db
-    # user = User.query.get(user_id)
-    # # make sure it is in the database
-    # if not user:
-    #     return abort(401, description="Invalid user")
+    # get the user id invoking get_jwt_identity
+    user_id = get_jwt_identity()
+    # find it in the db
+    user = User.query.get(user_id)
+    # make sure it is in the database
+    if not user:
+        return abort(401, description="Invalid user")
 
     # find the actor
     actor = Actor.query.filter_by(id=id).first()
