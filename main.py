@@ -27,6 +27,9 @@ def create_app():
     # creating the jwt and bcrypt objects for authenticating
     bcrypt.init_app(app)
     jwt.init_app(app)
+
+    from commands import db_commands
+    app.register_blueprint(db_commands)
     
     # import the controllers and activates the blueprints
     from controllers import registerable_controllers
