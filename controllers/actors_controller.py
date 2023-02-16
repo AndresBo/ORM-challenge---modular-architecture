@@ -19,6 +19,17 @@ def get_cards():
     result = actors_schema.dump(actors_list)
     # return the data in JSON format
     return jsonify(result)
+
+
+@actors.route("/<int:id>", methods=["GET"])
+def get_route(id):
+    actor = Actor.query.filter_by(id=id).first()
+
+    if not actor:
+        return abort(400, description= "Actor does not exists")
+
+    result = actor_schema.dump(actor)
+    return jsonify(result)
     
 
 @actors.route("/", methods=["POST"])

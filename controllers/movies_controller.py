@@ -14,6 +14,17 @@ def get_actors():
     movies_list = Movie.query.all()
     result = movies_schema.dump(movies_list)
     return jsonify(result)
+
+
+@movies.route("/<int:id>", methods=["GET"])
+def get_route(id):
+    movie = Movie.query.filter_by(id=id).first()
+
+    if not movie:
+        return abort(400, description= "Actor does not exists")
+
+    result = movie_schema.dump(movie)
+    return jsonify(result)
     
 
 
