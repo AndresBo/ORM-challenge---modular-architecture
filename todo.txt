@@ -13,4 +13,6 @@ SET UP FLASK APP
 - "          "   users                             WAITING 
 
 - set schemas                                         DONE
-- set authentication: signup, signin
+- set authentication: signup, signin                  DONE
+- set methods to get individual actors and movies     DONE
+- set methods to search movies and actors                   --lecture at 2:26
