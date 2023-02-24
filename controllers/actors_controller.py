@@ -72,4 +72,14 @@ def actor_delete(id):
     db.session.commit()
     # return the card in the response
     return jsonify(actor_schema.dump(actor))
+
+
+@actors.route("/search", methods=["GET"])
+def search_actors():
+    # return the content of the query string
+    actors_list = Actor.query.filter_by(name= request.args.get('name'))
+
+    result = actors_schema.dump(actors_list)
+
+    return jsonify(result)
     
